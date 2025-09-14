@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { NAV_LINKS } from '../constants';
 import Logo from './Logo';
@@ -10,12 +10,44 @@ const SocialIcon: React.FC<{ href: string; children: React.ReactNode }> = ({ hre
 );
 
 const Footer: React.FC = () => {
+  const [email, setEmail] = useState('');
+  const [status, setStatus] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setStatus('submitting');
+    
+    // NOTE: This is a placeholder. Create a new form on Formspree for the newsletter.
+    const FORM_ENDPOINT = "https://formspree.io/f/YOUR_NEWSLETTER_FORM_ID"; 
+
+    try {
+      const response = await fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        setEmail('');
+      } else {
+        setStatus('error');
+      }
+    } catch (error) {
+      setStatus('error');
+    }
+  };
+
+
   return (
-    <footer className="bg-gray-100 dark:bg-gray-900 text-gray-600 dark:text-gray-300">
+    <footer className="bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
           
-          <div className="md:col-span-1">
+          <div className="col-span-2 lg:col-span-1">
             <Link to="/" className="flex items-center space-x-3 mb-4">
               <Logo className="h-10 w-auto" />
               <span className="font-semibold text-lg text-gray-900 dark:text-white">Swiftera Technologies</span>
@@ -54,16 +86,32 @@ const Footer: React.FC = () => {
             </ul>
           </div>
           
-          <div>
+          <div className="col-span-2 lg:col-span-1">
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Newsletter</h3>
             <p className="text-sm mb-4">Subscribe to our newsletter to get the latest updates and trends in digital marketing.</p>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <div className="flex">
-                    <input type="email" placeholder="Your email" className="w-full px-4 py-2 text-gray-900 dark:text-white bg-gray-200 dark:bg-gray-700 placeholder-gray-500 dark:placeholder-gray-400 rounded-l-md focus:outline-none focus:ring-2 focus:ring-accent" />
-                    <button type="submit" className="bg-accent hover:bg-accent-hover text-white font-bold py-2 px-4 rounded-r-md transition-colors">
-                        Go
+                    <input 
+                      type="email" 
+                      placeholder="Your email" 
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                      className="w-full px-4 py-2 text-gray-900 dark:text-white bg-gray-200 dark:bg-gray-700 placeholder-gray-500 dark:placeholder-gray-400 rounded-l-md focus:outline-none focus:ring-2 focus:ring-accent" />
+                    <button 
+                      type="submit" 
+                      disabled={status === 'submitting'}
+                      className="bg-accent hover:bg-accent-hover text-white font-bold py-2 px-4 rounded-r-md transition-colors disabled:bg-gray-500"
+                    >
+                        {status === 'submitting' ? '...' : 'Go'}
                     </button>
                 </div>
+                 {status === 'success' && (
+                  <p className="text-green-500 dark:text-green-400 text-sm mt-2">Thank you for subscribing!</p>
+                )}
+                {status === 'error' && (
+                  <p className="text-red-500 dark:text-red-400 text-sm mt-2">Something went wrong. Please try again.</p>
+                )}
             </form>
           </div>
           
