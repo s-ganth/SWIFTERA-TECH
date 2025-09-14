@@ -4,7 +4,9 @@ import { motion } from 'framer-motion';
 const WhatsAppButton: React.FC = () => {
   // Add the country code (91 for India) to the phone number
   const phoneNumber = '917548855853'; 
-  const whatsappUrl = `https://wa.me/${phoneNumber}`;
+  const message = "Hello! I'm visiting your website and would like to know more about your services.";
+  const encodedMessage = encodeURIComponent(message);
+  const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
 
   return (
     <motion.a
