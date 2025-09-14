@@ -18,6 +18,7 @@ export const SERVICES: Service[] = [
     icon: SeoIcon, 
     title: 'SEO Optimization', 
     description: 'Enhance your visibility on search engines and drive organic traffic.',
+    backgroundImageUrl: 'https://picsum.photos/seed/seo-hero/1920/1080',
     details: {
       overview: 'Our SEO Optimization service is designed to increase your website\'s visibility in search engine results pages (SERPs). We use a combination of on-page, off-page, and technical SEO techniques to improve your rankings for keywords relevant to your business, driving qualified organic traffic to your site.',
       keyBenefits: [
@@ -41,6 +42,7 @@ export const SERVICES: Service[] = [
     icon: SmmIcon, 
     title: 'Social Media Marketing', 
     description: 'Engage your audience and build your brand on social platforms.',
+    backgroundImageUrl: 'https://picsum.photos/seed/social-hero/1920/1080',
     details: {
         overview: 'We create and manage high-performing social media campaigns for your business. Our service includes content creation, community management, and paid advertising to grow your audience, increase engagement, and drive leads and sales from platforms like Facebook, Instagram, LinkedIn, and Twitter.',
         keyBenefits: [
@@ -64,6 +66,7 @@ export const SERVICES: Service[] = [
     icon: ContentIcon, 
     title: 'Content Marketing', 
     description: 'Create valuable content that attracts, informs, and converts your audience.',
+    backgroundImageUrl: 'https://picsum.photos/seed/content-hero/1920/1080',
     details: {
         overview: 'Our content marketing service focuses on creating and distributing valuable, relevant, and consistent content to attract and retain a clearly defined audience. From blog posts and articles to e-books and case studies, we produce content that drives profitable customer action.',
         keyBenefits: [
@@ -87,6 +90,7 @@ export const SERVICES: Service[] = [
     icon: AnalyticsIcon, 
     title: 'Data Analytics', 
     description: 'Leverage data to make informed decisions and measure your ROI.',
+    backgroundImageUrl: 'https://picsum.photos/seed/analytics-hero/1920/1080',
     details: {
         overview: 'We turn your raw data into actionable insights. Our data analytics service helps you understand your customers, track marketing performance, and make smarter, data-driven decisions. We set up advanced tracking, create custom dashboards, and provide in-depth analysis to uncover growth opportunities.',
         keyBenefits: [
@@ -110,6 +114,7 @@ export const SERVICES: Service[] = [
     icon: AdsIcon, 
     title: 'Paid Advertising', 
     description: 'Run targeted ad campaigns on Google, Facebook, and more.',
+    backgroundImageUrl: 'https://picsum.photos/seed/ads-hero/1920/1080',
     details: {
         overview: 'Our paid advertising service is designed to deliver immediate, targeted traffic to your website. We manage pay-per-click (PPC) campaigns across platforms like Google Ads and social media, focusing on maximizing your return on ad spend (ROAS) through expert targeting, compelling ad copy, and continuous optimization.',
         keyBenefits: [
@@ -133,6 +138,7 @@ export const SERVICES: Service[] = [
     icon: VideoIcon, 
     title: 'Video Marketing', 
     description: 'Produce compelling video content that tells your brand’s story.',
+    backgroundImageUrl: 'https://picsum.photos/seed/video-hero/1920/1080',
     details: {
         overview: 'Video is the most engaging form of content, and our video marketing service helps you leverage its power. From scriptwriting and production to distribution and promotion, we create professional videos that capture attention, explain your value proposition, and convert viewers into customers.',
         keyBenefits: [

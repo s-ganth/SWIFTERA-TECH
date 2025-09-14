@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 export interface NavLink {
@@ -11,6 +10,7 @@ export interface Service {
   icon: React.ComponentType<{ className?: string }>;
   title: string;
   description: string;
+  backgroundImageUrl: string; // Add background image for detail page hero
   details: { // Add detailed information object
     overview: string;
     keyBenefits: string[];

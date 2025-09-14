@@ -15,6 +15,7 @@ import ContactPage from './pages/ContactPage';
 import NotFoundPage from './pages/NotFoundPage';
 import { fadeIn } from './animations';
 import { ThemeProvider } from './contexts/ThemeContext';
+import WhatsAppButton from './components/WhatsAppButton';
 
 // Lazy load the new component
 const BlogDetailPage = lazy(() => import('./pages/BlogDetailPage'));
@@ -62,6 +63,7 @@ const App: React.FC = () => {
           </main>
           <Footer />
         </div>
+        <WhatsAppButton />
       </Router>
     </ThemeProvider>
   );
